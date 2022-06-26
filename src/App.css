@@ -1,6 +1,13 @@
 .App {
   text-align: center;
+  
  
+}
+.test{
+
+  color:#282c34;
+  z-index: 1000;
+
 }
 .btn{
 color: deepskyblue;

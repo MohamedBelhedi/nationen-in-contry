@@ -1,6 +1,10 @@
 import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+// import De from './deutschland.json'
+ 
+
+
 
  export const Daten=[
 
@@ -22,6 +26,8 @@ import './App.css'
             </th>
             </thead>
             `
+            const active=document.querySelector(".active1")
+            active.style.background="red"
           console.log(result.variables[2].valueTexts)
 
        
@@ -47,9 +53,41 @@ import './App.css'
 
     button1:(<button className="btn btn-primary">hi</button>),
     click2(){
+        
+      fetch('https://dummyjson.com/products/1')
+      .then(res=>res.json())
+      .then(result=>{
+        
+        console.log(result.brand+result.images[0])
 
-        console.log("Hallo2")
+        const bildApi=document.querySelector('.bildApi')
+const pic = document.createElement("IMG");
+const btn=document.createElement("button")
+btn.setAttribute("text","x")
+pic.setAttribute("src",result.images[0]);
+pic.setAttribute("width", "500");
+pic.setAttribute("height", "600");
 
+bildApi.appendChild(pic);
+bildApi.appendChild(btn);
+btn.addEventListener("click",()=>{
+
+pic.remove(btn)
+btn.style.display="none"
+
+})
+
+
+
+
+
+
+
+      }).catch(err=>{
+
+        console.log("Fehler",err)
+
+      })
 
     }
 

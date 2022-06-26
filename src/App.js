@@ -68,15 +68,17 @@ class App extends Component{
    <h1>Einwohner Nationalität suchen Schweiz</h1>
 
    {/* <button onClick={this.fetch}>Start</button> */}
-   <Accordion defaultActiveKey="0">
-  <Accordion.Item eventKey="0">
-    <Accordion.Header></Accordion.Header>
+  
+   <Accordion defaultActiveKey="0" >
+  <Accordion.Item eventKey="0"  className="active1">
+    <Accordion.Header ></Accordion.Header>
     <Accordion.Body className="test">
     </Accordion.Body>
   </Accordion.Item>
   <Accordion.Item eventKey="1">
     <Accordion.Header>Welche Nationalitäten Leben Aktuell in der Schweiz</Accordion.Header>
     <Accordion.Body>
+    
     {Daten.map(({button,click,button1,button2})=>(
 
 <>
@@ -93,7 +95,7 @@ class App extends Component{
   
 
    </div>
- 
+  
    </>
 ))}
   <input type="text" onKeyDown={this.fetch} />
@@ -122,6 +124,11 @@ class App extends Component{
   <Accordion.Body onClick={click2}>
    
 {button1}
+
+<div className="bildApi">
+
+
+</div>
   </Accordion.Body>
 
 
