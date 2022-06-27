@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
+
 class App extends Component{
   constructor(props){
     super(props)
@@ -106,26 +107,34 @@ class App extends Component{
     </div>
 
     <Accordion>
-  <Accordion.Item eventKey="0">
-    <Accordion.Header>Accordion Item #1</Accordion.Header>
-    <Accordion.Body>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
-    </Accordion.Body>
-  </Accordion.Item>
   <Accordion.Item eventKey="1">
-    <Accordion.Header>Accordion Item #2</Accordion.Header>
+    <Accordion.Header>Api Call ISS Population</Accordion.Header>
     {Daten.map(({button1,click2})=>(
   <Accordion.Body onClick={click2}>
    
 {button1}
 
 <div className="bildApi">
+
+
+</div>
+  </Accordion.Body>
+
+
+    ))
+      
+    }
+  </Accordion.Item>
+</Accordion>
+    <Accordion>
+  <Accordion.Item eventKey="1">
+    <Accordion.Header>Nutriscore Api Call Random Food</Accordion.Header>
+    {Daten.map(({button2,click3})=>(
+  <Accordion.Body onClick={click3}>
+   
+{button2}
+
+<div className="foodApi">
 
 
 </div>

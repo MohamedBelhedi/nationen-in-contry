@@ -1,7 +1,8 @@
 import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-// import De from './deutschland.json'
+import {usaDT} from './usa'
+import De from './deutschland.json'
  
 
 
@@ -27,7 +28,7 @@ import './App.css'
             </thead>
             `
             const active=document.querySelector(".active1")
-            active.style.background="red"
+            active.style.transform = "zIndex(100000px)"
           console.log(result.variables[2].valueTexts)
 
        
@@ -51,55 +52,100 @@ import './App.css'
 },
 {
 
-    button1:(<button className="btn btn-primary">hi</button>),
+    button1:(<button className="btn btn-primary">fetch</button>),
     click2(){
         
-      fetch('https://dummyjson.com/products/1')
-      .then(res=>res.json())
-      .then(result=>{
+//       fetch('https://dummyjson.com/products/1')
+//       .then(res=>res.json())
+//       .then(result=>{
         
-        console.log(result.brand+result.images[0])
+//         console.log(result.brand+result.images[0])
 
-        const bildApi=document.querySelector('.bildApi')
-const pic = document.createElement("IMG");
-const btn=document.createElement("button")
-btn.setAttribute("text","x")
-pic.setAttribute("src",result.images[0]);
-pic.setAttribute("width", "500");
-pic.setAttribute("height", "600");
+//         const bildApi=document.querySelector('.bildApi')
+// const pic = document.createElement("IMG");
+// const btn=document.createElement("button")
+// btn.setAttribute("text","x")
+// pic.setAttribute("src",result.images[0]);
+// pic.setAttribute("width", "500");
+// pic.setAttribute("height", "600");
 
-bildApi.appendChild(pic);
-bildApi.appendChild(btn);
-btn.addEventListener("click",()=>{
+// bildApi.appendChild(pic);
+// bildApi.appendChild(btn);
+// btn.addEventListener("click",()=>{
 
-pic.remove(btn)
-btn.style.display="none"
+// bildApi.remove()
+
+
+// })
+
+fetch('http://api.open-notify.org/astros.json')
+.then(res=> res.json())
+.then(results=>{
+  // for(var i; results.people[0].name.length>i ; i++){
+  const bildApi=document.querySelector(".bildApi")   //keine kust 😁 neue element zu erstellen
+
+  // bitte eine Suchbox machen und mit if(input.includes(namex))....
+  const randomNum=Math.floor((Math.random()* 10) + 1)
+
+  bildApi.innerText=(results.people[randomNum].name)
+
+  console.log(results.people)
+  // }
+  console.log(results.people)
+
+  
+
+}).catch(err=>{
+
+console.log("Fehler",err)
+
 
 })
+}
+ 
 
-
-
-
-
-
-
-      }).catch(err=>{
-
-        console.log("Fehler",err)
-
-      })
-
-    }
+    // sicherheitsklammern falls es nicht klappt })}
 
 
 },
 {
     button2:(<button>Hallo</button>),
-    click(){
+    click3(){
 
-        console.log("Hallo3")
+      fetch('https://api.nutritionix.com/v1_1/search')
+      .then(res=>res.json())
+      .then(results=>{
+
+        const foodApi=document.querySelector(".foodApi")
+        foodApi.innerText=results.hits[0].fields.item_name
+        +' '
+        +
+        results.hits[0].fields.brand_name
+        +
+        '  Nutri Score   '
+        +
+        results.hits[0]._score 
+        
+        if(results.hits[0]._score<5){
+          alert("Unhealthy")
+        }
+        else{
+
+          alert("healthy")
+
+        }
+      
+        console.log(results.hits[0].fields.item_name,"geht")
 
 
+      }).catch(err=>{
+
+        console.log("Fehler im System bitte nach den Fehler in der Console suchen",err)
+
+
+      })
+
+console.log("geht")
     }
 
 
