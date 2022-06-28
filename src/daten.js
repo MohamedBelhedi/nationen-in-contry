@@ -12,7 +12,7 @@ import De from './deutschland.json'
 {
 
    button:(<button className="btn btn-primary d-flex justify-content-center">Erfahren</button>),
-    click(){
+    click(e){
 
         fetch("https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0103020300_102/px-x-0103020300_102.px")
         .then(res=> res.json())
@@ -30,20 +30,26 @@ import De from './deutschland.json'
             const active=document.querySelector(".active1")
             active.style.transform = "zIndex(100000px)"
           console.log(result.variables[2].valueTexts)
+          const input=document.querySelector("input").value
+// weiter versuchen über input
+          if("Albania"===result.variables[2].valueTexts[2]){
 
-       
+            console.log("test")
+
+        }
       
           
           // const x=document.createElement("p")
         })
         const input=document.querySelector("input").value
         
+if(e.key==="Enter"){
         if(input.includes("Albania")){
 
             console.log("test")
 
         }
-
+      }
 
 
     }
@@ -55,28 +61,7 @@ import De from './deutschland.json'
     button1:(<button className="btn btn-primary">fetch</button>),
     click2(){
         
-//       fetch('https://dummyjson.com/products/1')
-//       .then(res=>res.json())
-//       .then(result=>{
-        
-//         console.log(result.brand+result.images[0])
 
-//         const bildApi=document.querySelector('.bildApi')
-// const pic = document.createElement("IMG");
-// const btn=document.createElement("button")
-// btn.setAttribute("text","x")
-// pic.setAttribute("src",result.images[0]);
-// pic.setAttribute("width", "500");
-// pic.setAttribute("height", "600");
-
-// bildApi.appendChild(pic);
-// bildApi.appendChild(btn);
-// btn.addEventListener("click",()=>{
-
-// bildApi.remove()
-
-
-// })
 
 fetch('http://api.open-notify.org/astros.json')
 .then(res=> res.json())
@@ -85,9 +70,9 @@ fetch('http://api.open-notify.org/astros.json')
   const bildApi=document.querySelector(".bildApi")   //keine kust 😁 neue element zu erstellen
 
   // bitte eine Suchbox machen und mit if(input.includes(namex))....
-  const randomNum=Math.floor((Math.random()* 10) + 1)
+  const randomNum=Math.floor((Math.random()* 9) + 1) // die random function für ein zahl zw. 1 udn 9
 
-  bildApi.innerText=(results.people[randomNum].name)
+  bildApi.innerText=(results.people[randomNum].name+'  '+results.people[randomNum].craft)
 
   console.log(results.people)
   // }
@@ -109,10 +94,19 @@ console.log("Fehler",err)
 
 },
 {
-    button2:(<button>Hallo</button>),
-    click3(){
+  /* man soll immer die button etc. in einem objec abspeichern um zu vermeiden das die wenn sie einmal
+  in der map function ausgerufen werden micht für die gesammten obejcts nochmal ausgerufen werden.
+  */
+    button2:(<button className="btn btn-warning">Random Food</button>),
+    // input2:(<input className='foodInput' type={"text"} placeholder="search for Food" />)
+    // ,
+    async click3(){
 
-      fetch('https://api.nutritionix.com/v1_1/search')
+     
+      const foodInput=document.querySelector(".foodInput").value
+     
+     console.log(foodInput)
+     await fetch(`https://api.nutritionix.com/v1_1/search/${foodInput}`)
       .then(res=>res.json())
       .then(results=>{
 
@@ -140,11 +134,11 @@ console.log("Fehler",err)
 
       }).catch(err=>{
 
-        console.log("Fehler im System bitte nach den Fehler in der Console suchen",err)
+        console.log("Fehler im System bitte nach den Fehler in der Console suchen",err,alert("gibt es nicht"))
 
 
       })
-
+  
 console.log("geht")
     }
 

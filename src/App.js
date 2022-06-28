@@ -66,7 +66,7 @@ class App extends Component{
   return (
     <>
     <div className="App">
-   <h1>Einwohner Nationalität suchen Schweiz</h1>
+   <h1>Mixed API Calls</h1>
 
    {/* <button onClick={this.fetch}>Start</button> */}
   
@@ -129,15 +129,25 @@ class App extends Component{
     <Accordion>
   <Accordion.Item eventKey="1">
     <Accordion.Header>Nutriscore Api Call Random Food</Accordion.Header>
-    {Daten.map(({button2,click3})=>(
+ 
+
+    {Daten.map(({button2,click3,input2})=>(
   <Accordion.Body onClick={click3}>
-   
-{button2}
+    <div className="input">
+
+{/* {input2} */}
+ 
+</div>
+   <div className="button2">
+   {button2}
+
+   </div>
 
 <div className="foodApi">
 
 
 </div>
+
   </Accordion.Body>
 
 
@@ -146,12 +156,8 @@ class App extends Component{
     }
   </Accordion.Item>
 </Accordion>
+<input className='foodInput' type={"text"} placeholder="search for Food" />
 
-<div>
-
-
- 
-</div>
     </>
   );
 
