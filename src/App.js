@@ -16,46 +16,53 @@ class App extends Component{
   }
 
 //funktion ist Blind  
-// fetch=async(e)=>{
-//     // beispiel API
-// try{
-//     await fetch("https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0103020300_102/px-x-0103020300_102.px")
-//     .then(res=> res.json())
-//     .then(result=>{
+fetch=async(e)=>{
+    // beispiel API
+try{
+    await fetch("https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0103020300_102/px-x-0103020300_102.px")
+    .then(res=> res.json())
+    .then(result=>{
 
 
-//       console.log(result.variables[2].valueTexts)
-//       // const x=document.createElement("p")
+      console.log(result.variables[2].valueTexts)
+      // const x=document.createElement("p")
 
   
 
-//       // x.appendChild(x)
-//       const x=document.querySelector(".test")
-//       x.innerHTML=result.variables[1].valueTexts+result.variables[2].valueTexts
-//       const input=document.querySelector("input").value
-// if(e.key==='Enter'){
-//       if(input.map(x.textContent)==="Yemen")
+      // x.appendChild(x)
+      const x=document.querySelector(".test")
+      x.innerHTML=result.variables[1].valueTexts+result.variables[2].valueTexts
       
-//       {
-//           alert("das ist Jemen")
-//       }
-//       const input=document.querySelector("input").value
-//       const x=document.querySelector(".test")
-//       if(input.includes(x.textContent==="Svizzera")){
+if(e.key==='Enter'){
+  const input=document.querySelector("input").value
+          if(input.includes(["Albanien"])===result.variables[2].valueTexts[2]){
+            
+      
+      
+          alert("das ist Jemen")
+      
+      // const input=document.querySelector("input").value
+      // const x=document.querySelector(".test")
+      // if(input.includes(x.textContent==="Svizzera")){
 
-//           console.log("test")
+      //     console.log("test")
 
-//       }
-// }
+      // }
+}}
 
-//     })
-//   }catch{
+    }).catch(err=>{
 
-// console.log("Fehler")
+  
+      err.status(400).json("kannst nicht rein")
 
-//   }
+    })
+  }catch{
 
-//   }
+console.log("Fehler")
+
+  }
+
+  }
   render(){
 
 
@@ -99,7 +106,7 @@ class App extends Component{
   
    </>
 ))}
-  <input type="text" onKeyDown={this.fetch} />
+  <input className="inputTest" type="text" onKeyDown={this.fetch} />
     </Accordion.Body>
   </Accordion.Item>
 </Accordion>

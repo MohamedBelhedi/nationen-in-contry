@@ -5,9 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const alert_ext=()=>{
+
+  alert("Vergiss nicht den Error zu reparieren, falls du package.lock.json file löschst denk dran die Modules wie react-coco hub zu installieren")
+
+
+}
 root.render(
   <React.StrictMode>
-    <App />
+    <App onChange={alert_ext()} />
   </React.StrictMode>
 );
 

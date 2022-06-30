@@ -14,7 +14,7 @@ import De from './deutschland.json'
    button:(<button className="btn btn-primary d-flex justify-content-center">Erfahren</button>),
     click(e){
 
-        fetch("https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0103020300_102/px-x-0103020300_102.px")
+        fetch("https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0103020300_102/px-x-0103020300_102.px")
         .then(res=> res.json())
         .then(result=>{
     
@@ -31,13 +31,38 @@ import De from './deutschland.json'
             active.style.transform = "zIndex(100000px)"
           console.log(result.variables[2].valueTexts)
           const input=document.querySelector("input").value
+          
+
+
+         if(x.textContent.includes(input))
+         {
+
+          console.log("ja deine ",input,"ist dabei ")
+
+         }else{
+
+          alert("nicht dabei")
+
+         }
+
 // weiter versuchen über input
-          if("Albania"===result.variables[2].valueTexts[2]){
+// ===result.variables[2].valueTexts[2]
+          // for(let i; i==result.variables;i++){
+          // if(input==result.variables[i].valueTexts[i])
 
-            console.log("test")
+          // const x1=document.querySelectorAll(".test").textContent
+          // x1.forEach((x1)=>{
 
-        }
+          //   if(x1.includes("Albanien"))
+          //   {
+  
+          //     console.log("test")
+  
+          //  }
+          //   })
+         
       
+          
           
           // const x=document.createElement("p")
         })
@@ -73,12 +98,16 @@ fetch('http://api.open-notify.org/astros.json')
   const randomNum=Math.floor((Math.random()* 9) + 1) // die random function für ein zahl zw. 1 udn 9
 
   bildApi.innerText=(results.people[randomNum].name+'  '+results.people[randomNum].craft)
-
+  // if(results.people[4].name[4].includes("Bob Hines"))
+ 
   console.log(results.people)
   // }
   console.log(results.people)
-
-  
+const bildApi_ext=bildApi.textContent
+  if(bildApi_ext.includes(bildApi_ext))
+  {
+    console.log("this is",bildApi_ext)
+    }
 
 }).catch(err=>{
 
