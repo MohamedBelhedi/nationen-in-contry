@@ -62,6 +62,22 @@ console.log("Fehler")
 
   }
 
+
+
+  }
+  input_ext=(e)=>{
+    if(e.key==='Enter'){
+    const ISS_Input=document.querySelector(".ISS_Input").value
+    const bildApi=document.querySelector(".bildApi").textContent
+    // const bildApi_ext=bildApi.textContent
+    
+    if(bildApi.includes(ISS_Input))
+    {
+      console.log(ISS_Input,"this is",bildApi)
+      }
+  
+    }
+  
   }
   render(){
 
@@ -87,7 +103,7 @@ console.log("Fehler")
     <Accordion.Header>Welche Nationalitäten Leben Aktuell in der Schweiz</Accordion.Header>
     <Accordion.Body>
     
-    {Daten.map(({button,click,button1,button2})=>(
+    {Daten.map(({button,click})=>(
 
 <>
    <div className="d-flex justify-content-center" onClick={click}>
@@ -125,12 +141,14 @@ console.log("Fehler")
 
 
 </div>
+
   </Accordion.Body>
 
 
     ))
       
     }
+    <input className='ISS_Input' type="text"  onKeyDown={this.input_ext}/>
   </Accordion.Item>
 </Accordion>
     <Accordion>
@@ -163,7 +181,11 @@ console.log("Fehler")
     }
   </Accordion.Item>
 </Accordion>
+
+
 <input className='foodInput' type={"text"} placeholder="search for Food" />
+
+
 
     </>
   );

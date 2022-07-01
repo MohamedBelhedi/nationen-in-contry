@@ -106,7 +106,7 @@ fetch('http://api.open-notify.org/astros.json')
 const bildApi_ext=bildApi.textContent
   if(bildApi_ext.includes(bildApi_ext))
   {
-    console.log("this is",bildApi_ext)
+    // console.log("this is",bildApi_ext)
     }
 
 }).catch(err=>{
@@ -115,7 +115,9 @@ console.log("Fehler",err)
 
 
 })
-}
+},
+
+
  
 
     // sicherheitsklammern falls es nicht klappt })}
